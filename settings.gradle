@@ -1,0 +1,5 @@
+rootProject.name = 'BobPull'
+include 'ServiceServer1'
+include 'ServiceServer2'
+include 'ConfigServer'
+
