@@ -1,4 +1,4 @@
-rootProject.name = 'BobPull'
+rootProject.name = 'msa-study'
 include 'ServiceServer1'
 include 'ServiceServer2'
 include 'ConfigServer'

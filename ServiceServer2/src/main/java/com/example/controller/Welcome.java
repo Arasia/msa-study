@@ -1,7 +1,5 @@
 package com.example.controller;
 
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +15,7 @@ import java.util.Map;
 @RequestMapping(value = "/welcome")
 @Controller
 public class Welcome {
-    private static Logger logger = LoggerFactory.getLogger(Welcome.class);
+    private static final Logger logger = LoggerFactory.getLogger(Welcome.class);
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody

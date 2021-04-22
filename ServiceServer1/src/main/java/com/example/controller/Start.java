@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,13 +17,12 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @RequestMapping(value = "/start")
 @Controller
 public class Start {
-    private static Logger logger = LoggerFactory.getLogger(Start.class);
+    private static final Logger logger = LoggerFactory.getLogger(Start.class);
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     @ResponseBody
