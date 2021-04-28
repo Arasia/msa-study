@@ -2,4 +2,11 @@ server:
   port: 9080
 spring:
   application:
-    name: com.example.serviceServer1
+    name: microservice-a
+  config:
+    import: optional:configserver:http://localhost:8888
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://localhost:8888
