@@ -1,2 +1,0 @@
-com/example/ConfigServerApplication.java
- com.example.ConfigServerApplication

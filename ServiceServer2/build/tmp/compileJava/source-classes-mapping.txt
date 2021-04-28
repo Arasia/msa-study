@@ -1,4 +1,0 @@
-com/example/ServiceServerApplication.java
- com.example.ServiceServerApplication
-com/example/controller/Welcome.java
- com.example.controller.Welcome
