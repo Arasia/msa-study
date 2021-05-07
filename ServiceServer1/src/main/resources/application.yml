@@ -10,3 +10,12 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+  rabbitmq:
+    username: user
+    password: user
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
