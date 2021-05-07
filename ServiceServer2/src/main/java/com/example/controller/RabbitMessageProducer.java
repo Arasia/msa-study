@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.RabbitCustomMessage2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -27,7 +28,9 @@ public class RabbitMessageProducer {
     public String rabbitSend() {
         logger.info("Start RabbitSend");
 
-        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, ROUTING_KEY, "RabbitSendMessage2");
+        var msg = new RabbitCustomMessage2("message2", 0, false);
+
+        rabbitTemplate.convertAndSend(TOPIC_EXCHANGE_NAME, ROUTING_KEY, msg);
 
         return "success";
     }
