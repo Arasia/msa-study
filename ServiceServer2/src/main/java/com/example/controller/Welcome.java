@@ -2,8 +2,8 @@ package com.example.controller;
 
 import com.example.config.ApplicationConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,19 +15,15 @@ import java.util.Map;
 
 @RequestMapping(value = "/welcome")
 @Controller
+@RequiredArgsConstructor
+@Slf4j
 public class Welcome {
-    private static final Logger logger = LoggerFactory.getLogger(Welcome.class);
-
-    ApplicationConfiguration applicationConfiguration;
-
-    public Welcome(ApplicationConfiguration applicationConfiguration) {
-        this.applicationConfiguration = applicationConfiguration;
-    }
+    private final ApplicationConfiguration applicationConfiguration;
 
     @GetMapping(value = "/{id}")
     @ResponseBody
     public String welcomePage(@PathVariable String id) {
-        logger.info("Post id : {}", id);
+        log.info("Post id : {}", id);
 
         Map<String, String> resultMap = new HashMap<>();
         resultMap.put("msg", id + " welcome" + applicationConfiguration.getMessage());
@@ -36,7 +32,7 @@ public class Welcome {
 
         try {
             var objectMapper = new ObjectMapper();
-            stringInJson = objectMapper.writeValueAsString(resultMap);
+            return objectMapper.writeValueAsString(resultMap);
         } catch (Exception e) {
             e.printStackTrace();
         }
