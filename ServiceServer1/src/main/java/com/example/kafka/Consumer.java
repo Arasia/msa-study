@@ -1,17 +1,14 @@
 package com.example.kafka;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class Consumer {
-
-    private final Logger logger = LoggerFactory.getLogger(Consumer.class);
-
     @KafkaListener(topics = "users", groupId = "group_id")
     public void consume(String message) {
-        logger.info("#### -> Consumed message -> {}", message);
+        log.info("#### -> Consumed message -> {}", message);
     }
 }
