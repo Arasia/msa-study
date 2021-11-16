@@ -2,8 +2,8 @@ package com.example.controller;
 
 import com.example.config.ApplicationConfiguration;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -20,21 +20,18 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Map;
 
-@RequestMapping(value = "/start")
 @Controller
+@Slf4j
+@RequiredArgsConstructor
+@RequestMapping(value = "/start")
 public class Start {
-    private static final Logger logger = LoggerFactory.getLogger(Start.class);
 
     ApplicationConfiguration applicationConfiguration;
-
-    public Start(ApplicationConfiguration applicationConfiguration) {
-        this.applicationConfiguration = applicationConfiguration;
-    }
 
     @GetMapping(value = "/{id}")
     @ResponseBody
     public String startApi(@PathVariable String id) {
-        logger.info("Post id : {}", id);
+        log.info("Post id : {}", id);
 
         var jsonInString = "";
 
@@ -67,3 +64,4 @@ public class Start {
         return jsonInString;
     }
 }
+

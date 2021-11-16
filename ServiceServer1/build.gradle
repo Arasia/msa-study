@@ -16,18 +16,6 @@ ext {
     springCloudVersion = '2020.0.2'
 }
 
-dependencies {
-    compile 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'org.springframework.cloud:spring-cloud-config-client'
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-
-    implementation 'org.apache.httpcomponents:httpclient'
-    compile 'org.projectlombok:lombok:1.18.20'
-}
-
 dependencyManagement {
     imports {
         mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
@@ -36,4 +24,20 @@ dependencyManagement {
 
 test {
     useJUnitPlatform()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.cloud:spring-cloud-config-client'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.apache.httpcomponents:httpclient'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
