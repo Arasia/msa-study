@@ -1,19 +1,24 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.4.5'
+    id 'org.springframework.boot' version '2.6.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group = 'org.example'
+version = '1.0-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
 }
 
+repositories {
+    mavenCentral()
+    maven { url 'https://repo.spring.io/milestone' }
+}
+
 ext {
-    springCloudVersion = '2020.0.2'
+    set('springCloudVersion', "2021.0.0-RC1")
 }
 
 dependencyManagement {
@@ -29,6 +34,7 @@ test {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.cloud:spring-cloud-config-client'
     implementation 'org.springframework.kafka:spring-kafka'
     implementation 'org.apache.httpcomponents:httpclient'
