@@ -33,6 +33,7 @@ test {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     implementation 'org.springframework.cloud:spring-cloud-config-client'
@@ -46,4 +47,6 @@ dependencies {
 
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+    runtimeOnly 'com.h2database:h2'
 }
