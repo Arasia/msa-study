@@ -4,8 +4,8 @@ plugins {
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group = 'org.example'
+version = '1.0-SNAPSHOT'
 sourceCompatibility = '11'
 
 repositories {
@@ -13,7 +13,7 @@ repositories {
 }
 
 ext {
-    springCloudVersion = '2020.0.2'
+    springCloudVersion = '2020.0.4'
 }
 
 dependencyManagement {
