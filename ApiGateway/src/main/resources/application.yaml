@@ -1,0 +1,29 @@
+#Zull routes
+server:
+  port: 7080
+spring:
+  application:
+    name: API Gateway Zuul
+logging:
+  level:
+    com.example.apigateway: debug
+zuul:
+  prefix: /api
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:7090/eureka
+    register-with-eureka: true
+    fetch-registry: true
+management:
+  endpoint:
+    routes:
+      enabled: true
+    filters:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: routes, filters
