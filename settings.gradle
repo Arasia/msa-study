@@ -1,4 +1,4 @@
 rootProject.name = 'msa-study'
 include 'UserServiceServer'
-include 'ServiceServer2'
+include 'LogServer'
 include 'ConfigServer'
