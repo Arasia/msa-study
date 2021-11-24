@@ -9,4 +9,4 @@ spring:
     config:
       server:
         git:
-          uri: "https://github.com/Arasia/msa-study"
+          uri: "https://github.com/Arasia/msa-study-config"
