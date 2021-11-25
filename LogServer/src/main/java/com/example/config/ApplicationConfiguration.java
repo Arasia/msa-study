@@ -11,4 +11,5 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("application")
 public class ApplicationConfiguration {
     private String message;
+    private String title;
 }

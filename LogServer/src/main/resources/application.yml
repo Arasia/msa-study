@@ -17,3 +17,6 @@ spring:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+application:
+  title: "Title From Local Properties"
+  message: "Message Form Local Properties"

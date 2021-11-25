@@ -15,6 +15,7 @@ public class Consumer {
 
     @KafkaListener(topics = "user-service", groupId = "group_id")
     public void consume(String message) {
+        log.info("#### -> Log Server Title -> {}", applicationConfiguration.getTitle());
         log.info("#### -> Log Server Properties -> {}", applicationConfiguration.getMessage());
         log.info("#### -> Consumed message -> {}", message);
     }
