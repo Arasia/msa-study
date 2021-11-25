@@ -28,6 +28,15 @@ public class UserService {
         User user = userRepository.findById(id)
                 .orElseThrow(IllegalArgumentException::new);
 
+        User findUser = userRepository.findById(user.getId())
+                .orElseThrow(IllegalAccessError::new);
+
+        User findByNameUser = userRepository.findByName(user.getName())
+                .orElseThrow(IllegalArgumentException::new);
+
+        log.info("#### -> Is Same Test1 : {}", findUser == user);
+        log.info("#### -> Is Same Test2 : {}", findByNameUser == user);
+
         log.info("#### -> Log Server Properties -> {}", applicationConfiguration.getMessage());
 
         userKafkaService.send("Find User : " + user);
@@ -39,6 +48,20 @@ public class UserService {
         User user = userRequest.toUser();
 
         User persistUser = userRepository.save(user);
+
+        User findUser = userRepository.findById(persistUser.getId())
+                .orElseThrow(IllegalAccessError::new);
+
+        User secondFindUser = userRepository.findById(persistUser.getId())
+                .orElseThrow(IllegalAccessError::new);
+
+        User findByNameUser = userRepository.findByName(persistUser.getName())
+                .orElseThrow(IllegalArgumentException::new);
+
+        log.info("#### -> Is Same Test1 : {}", user == persistUser);
+        log.info("#### -> Is Same Test2 : {}", findUser == persistUser);
+        log.info("#### -> Is Same Test3 : {}", secondFindUser == persistUser);
+        log.info("#### -> Is Same Test4 : {}", findByNameUser == persistUser);
 
         log.info("#### -> Log Server Properties -> {}", applicationConfiguration.getMessage());
 
